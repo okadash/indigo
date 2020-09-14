@@ -1,6 +1,6 @@
 # INDIGO-CLI
 
-This is Indigo API command line tools for NTTPC indigo platform users.
+This is Indigo API command line tools for WebArena Indigo platform users.
 
 # INSTALL
 
