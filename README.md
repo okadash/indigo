@@ -1,6 +1,15 @@
 # INDIGO-CLI
 
-This is indigo api command line tools for NTTPC indigo platform users.
+This is Indigo API command line tools for NTTPC indigo platform users.
+
+# INSTALL
+
+Use [shef](https://github.com/okadash/shef) to install indigo-cli:
+
+``` 
+shef install https://github.com/okadash/indigo-cli
+```
+
 
 # USAGE
 
