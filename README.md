@@ -21,5 +21,5 @@ This is indigo api command line tools for NTTPC indigo platform users.
 |indigo `firewall get <template_id>` | retrieve firewall template with id |
 |indigo `firewall assign <instance_id> <template_id>` | assign firewall template to the instance |
 |indigo `firewall delte <template_id>` | delete firewall template with id |
-|indigo help` | show help
+|indigo `help` | show help
 
