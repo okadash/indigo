@@ -10,7 +10,7 @@ This is indigo api command line tools for NTTPC indigo platform users.
 |indigo `apikey list` | list apikey |
 |indigo `apikey generate` | generate new apikey |
 |indigo `sshkey list [active]` | list sshkey |
-|indigo `[instance] create <ssh_key_id> <name> [instancePlan] [os_id]` | start instance |
+|indigo `[instance] create <ssh_key_id> <name> [instancePlan] [os_id]` | create instance |
 |indigo `[instance] start <instance_id>` | start instance |
 |indigo `[instance] stop <instance_id>` | halt instance |
 |indigo `[instance] forcestop <instance_id>` | immediatly poweroff instance |
