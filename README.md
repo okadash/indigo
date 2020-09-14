@@ -34,7 +34,7 @@ shef install https://github.com/okadash/indigo-cli
 
 # ABOUT INDIGO API
 
-See WebArena official API Documentation.
+See WebArena official [API Documentation](https://indigo.arena.ne.jp/userapi/).
 
 # Contact
 
