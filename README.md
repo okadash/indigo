@@ -10,7 +10,6 @@ Use [shef](https://github.com/okadash/shef) to install indigo-cli:
 shef install https://github.com/okadash/indigo-cli
 ```
 
-
 # USAGE
 
 | command | description |
@@ -25,7 +24,7 @@ shef install https://github.com/okadash/indigo-cli
 |indigo `forcestop <instance_id>` | immediatly poweroff instance |
 |indigo `reset <instance_id>` | reboot instance |
 |indigo `destroy <instance_id>` | destroy instance |
-|indigo `instance <desc>` | same operation as start,stop,forcestop,reset,destroy |
+|indigo `instance <desc>` | `<desc>`:: start, stop, forcestop, reset, destroy, types, os, spec |
 |indigo `firewall create <desc>` | create firewall templates |
 |indigo `firewall list` | list firewall templates |
 |indigo `firewall get <template_id>` | retrieve firewall template with id |
@@ -33,3 +32,10 @@ shef install https://github.com/okadash/indigo-cli
 |indigo `firewall delte <template_id>` | delete firewall template with id |
 |indigo `help` | show help
 
+# ABOUT INDIGO API
+
+See WebArena official API Documentation.
+
+# Contact
+
+indigo-tools@lab.sysnk.net (SyaNaka Lab.)
