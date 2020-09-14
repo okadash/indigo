@@ -1,6 +1,6 @@
 # INDIGO-CLI
 
-This is Indigo API command line tools for WebArena Indigo platform users.
+This is Indigo API command line tools for [WebArena Indigo](https://web.arena.ne.jp/indigo/) platform users.
 
 # INSTALL
 
