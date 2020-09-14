@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set_token(){ 
+  dump_token(){ cat $IND_TOKEN_PATH | tr -d \" || throw cannot read IND_TOKEN_PATH: $IND_TOKEN_PATH; }
+  BASE_URL=https://api.customer.jp/webarenaIndigo/v1/
+  IND_TOKEN=`dump_token`
+  : ${IND_TOKEN:? set_token: IND_TOKEN NOT SET, abort!}
+  ind_auth_header="Authorization: Bearer $IND_TOKEN"
+}

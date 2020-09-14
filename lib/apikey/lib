@@ -1,0 +1,5 @@
+#!/bin/sh
+indigo_apikey_generate(){ set_endpoint auth/create/apikey; }
+indigo_apikey_list(){ set_endpoint auth/apikey; }
+indigo_apikey_destroy(){ set_endpoint auth/apikey/${1:?indigo_apikey_destroy: apikey_id not specified}; }
+

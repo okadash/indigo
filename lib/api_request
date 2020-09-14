@@ -1,0 +1,16 @@
+#!/bin/sh
+
+api_request(){
+  header="${ind_content_header:-$ind_auth_header}"
+  { get_type; get_endpoint;} > /dev/null
+  ${DRY:+echo} curl -X `getvar type` \
+  `getvar endpoint` \
+  "${header:+-H}" "$header" \
+  -d "${body}"
+}
+name_id_extractor(){
+  jq ".${1} | .[] | [.id,.name]" | \
+  tr -d \\\n\\\   | sed s/\]/\&\\\n/g
+}
+
+

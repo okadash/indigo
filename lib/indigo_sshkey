@@ -1,0 +1,19 @@
+#!/bin/sh
+
+#indigo_sshkey
+## list [active]
+## create <name> <key>
+## retrieve <id>
+## update <name> <key> [status]
+## delete <id>
+indigo_sshkey(){
+  require @indigo/sshkey
+  set_token
+  set_type ${1:? indigo_sshkey: argument needed!}
+  case $1 in 
+    list) shift; indigo_sshkey_list $1 ;; 
+    create) shift; indigo_sshkey_create $@;;
+    get) shift; indigo_sshkey_retrieve $@;;
+    *) throw indigo_sshkey: unknown subcommand \"$1\"
+  esac
+}

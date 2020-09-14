@@ -1,0 +1,19 @@
+indigo_firewall(){
+  require @indigo/firewall
+  set_token
+  set_type ${1:? indigo_instance: argument needed!}
+  case $1 in 
+    create) #<name> #<inbound|outbound> #<rules> #[instances]
+      shift; indigo_firewall_create $@ ;;
+    list) 
+      indigo_firewall_list ;;
+    get) #<template_id>
+      shift; indigo_firewall_retrieve $@;;
+    update) shift; indigo_firewall_update $@;;
+    assign) #<instance_id> #<template_id>
+      shift; indigo_firewall_assign $@;;
+    delete) #<template_id>
+      shift; indigo_firewall_delete $@;;
+    *) throw indigo_firewall: unknown subcommand \"$1\"
+  esac
+}

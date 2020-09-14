@@ -1,0 +1,28 @@
+#!/bin/sh
+
+#indigo_instance
+indigo_instance(){
+  require @indigo/instance
+  set_token
+  set_type ${1:? indigo_instance: argument needed!}
+  case $1 in 
+    types) 
+    ##types: 
+    indigo_instance_type_list ;;
+    regions)
+    ##regions: 
+    indigo_instance_region_list ;;
+    os)
+    ##os: 
+    indigo_instance_os_list ;;
+    spec)
+    ##spec: view details about an instance specification list
+    indigo_instance_spec_list ;;
+    create) shift; indigo_instance_create $@ ;;
+    ##create: view details about an instance specification list
+    start|stop|forcestop|reset|destroy) indigo_instance_update $@ ;;
+    list) shift; indigo_instance_list ;;
+    update) throw instance update: not implemented now;;
+    *) throw indigo_instance: unknown subcommand \"$1\";;
+  esac
+}

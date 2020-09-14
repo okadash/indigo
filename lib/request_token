@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# token
+request_token(){ 
+  test ! -d "${IND_TOKEN_PATH%/*}" && mkdir "${IND_TOKEN_PATH%/*}"
+  test -f "$IND_TOKEN_PATH" && rm -v $IND_TOKEN_PATH
+  decrypt_credential
+  set_type init; 
+  set_endpoint accesstokens;
+  ind_content_header="Content-Type: application/json";
+  body="{
+    \"grantType\": \"client_credentials\",
+    \"clientId\": \"$CID\",
+    \"clientSecret\": \"$CSEC\",
+    \"code\": \"\"
+  }" 
+  execute  | jq .accessToken > $IND_TOKEN_PATH || { test -z "$DRY" && throw failed to write token to file $IND_TOKEN_PATH;}
+}

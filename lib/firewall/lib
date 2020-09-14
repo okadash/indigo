@@ -1,0 +1,41 @@
+indigo_firewall_create(){ 
+  indigo_firewall_create_inline(){
+    fw_name=${1:?indigo_firewall: firewall name not specified}
+    fw_direction=${2:?indigo_firewall: specify \"inbound\" or \"outbound\"}
+    fw_protocol=${3:?indigo_firewall: specify \"tcp\" or \"udp\"}
+    fw_port=${4:?indigo_firewall: port not specified;}
+    fw_source_ip=${5:?indigo_firewall: source IP not specified;}
+    shift 5;
+    fw_instance=$@
+    body="{
+      \"name\": \"$fw_name\",
+      \"$fw_direction\":[
+        {\"type\":\"Custom\",\"protocol\":\"`echo $fw_protocol | tr [a-z] [A-Z]`\",\"port\":\"$fw_port\",\"source\":\"$fw_source_ip\"} 
+      ]
+      ${fw_instance:+,\"instances\":[\"$fw_instance\"]} 
+    }" 
+  }
+  indigo_firewall_create_from_template(){ throw not implemented now; }
+  is_file(){ test $# -eq 1 && test -f $1; }
+  set_endpoint nw/createfirewall; 
+  : ${1:?indigo_firewall_create: argument not specified}
+  is_file $1 || indigo_firewall_create_inline $@
+  is_file $1 && indigo_firewall_create_from_template $1
+}
+indigo_firewall_list(){ set_endpoint nw/getfirewalllist; }
+indigo_firewall_retrieve(){
+  set_endpoint nw/gettemplate/${1:?indigo_firewall_assign: template_id MUST be specified}
+}
+indigo_firewall_update(){ throw not implemented now; }
+indigo_firewall_assign(){ #<instance_id> #<template_id>
+  set_endpoint nw/assign
+  instance_id=${1:?indigo_firewall_assign: instance_id MUST be specified}
+  template_id=${2:?indigo_firewall_assign: template_id MUST be specified}
+  body="{
+    \"instanceid\": \"$instance_id\",
+    \"templateid\": \"${template_id}\"
+  }" 
+}
+indigo_firewall_delete(){
+  set_endpoint nw/deletefirewall/${1:?indigo_firewall_delete: template_id MUST be specified!}
+}

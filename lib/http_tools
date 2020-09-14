@@ -1,0 +1,23 @@
+#!/bin/sh
+
+set_type(){ 
+  case ${1:? settype: argument needed!} in 
+    generate|list|get|types|regions|os|spec) 
+      setvar type GET;;
+    create|init|start|stop|forcestop|destroy|assign|retry|restore|add|verify|add)
+      setvar type POST ;;
+    update)
+      setvar type PUT;;
+    delete|remove|cancel)
+      setvar type DELETE;;
+  esac
+}
+
+get_type(){ getvar type; }
+
+set_endpoint(){ setvar endpoint ${BASE_URL:?BASE_URL corrupted!}/${1:?set_endpoint: argument needed!}; }
+
+get_endpoint(){ getvar endpoint; }
+
+extract_token(){ jq .accessToken; }
+

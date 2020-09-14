@@ -1,0 +1,55 @@
+#!/bin/sh
+
+nonw(){ throw no implementation now!; }
+indigo(){
+  loadenv(){
+    test ! -d $HOME/.cloud && mkdir $HOME/.cloud
+    chk -d $HOME/.cloud 
+    CRED_PATH=${INDIGO_CREDENTIAL_PATH:? INDIGO_CREDENTIAL_PATH not set!}
+    chk -f $CRED_PATH -m file not exit: $CRED_PATH;
+    IND_TOKEN_PATH=$HOME/.cloud/indigo_token
+    BASE_URL=https://api.customer.jp/oauth/v1
+    : ${IND_TOKEN_PATH:? invalid IND_TOKEN_PATH}
+    : ${BASE_URL:? invalid BASE_URL}
+    ind_content_header=
+    ind_auth_header=
+    body=
+  }
+  loadmod(){
+    require jq curl gpg
+    require @indigo
+  }
+
+#SHELIB_SUBCOMMANDS
+  parseargs(){
+    case $1 in
+      init)
+      ##initialize access token
+        request_token; exit ;;
+      apikey|a|ap) 
+      ##manage apikey
+        shift; indigo_apikey $@ ;;
+      sshkey|s|ssh) 
+      ##manage sshkey
+        shift; indigo_sshkey $@ ;;
+      instance|i|inst|srv|server|create|start|stop|forcestop|reset|destroy) 
+      ##manage instance
+        case $1 in instance|i|inst|srv|server) shift; esac
+	indigo_instance $@ ;;
+      firewall|fw)
+      ##manage firewall
+        shift; indigo_firewall $@ ;;
+      help) 
+      ##show this help
+        showhelp; exit ;;
+      *) throw unknown argument;;
+    esac
+  }
+#SHELIB_SUBCOMMANDS
+  execute(){
+    api_request || throw execution error 2> /dev/null
+  }
+}
+
+cook indigo $@
+echo
