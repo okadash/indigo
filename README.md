@@ -15,8 +15,8 @@ shef install https://github.com/okadash/indigo-cli
 | command | description |
 | --- | --- |
 |indigo init | initialize access token for new request |
-|indigo apikey `list` | list apikey |
-|indigo apikey `generate` | generate new apikey |
+|indigo apikey list | list apikey |
+|indigo apikey generate | generate new apikey |
 |indigo sshkey list `[active]` | list sshkey |
 |indigo create `<sshkey_id>` `<name>` `[plan_id]` `[os_id]` | create instance |
 |indigo start `<instance_id>` | start instance |
