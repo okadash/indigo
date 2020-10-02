@@ -1,0 +1,6 @@
+#!/bin/sh
+# destroy API key with key ID
+indigo_apikey_destroy () #apikey_id
+{ 
+    set_endpoint auth/apikey/${1:?indigo_apikey_destroy: apikey_id not specified}
+}

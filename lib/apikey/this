@@ -1,0 +1,19 @@
+#!/bin/sh
+
+#indigo_apikey
+indigo_apikey()
+{
+  set_token
+  set_method ${1:? indigo_apikey: argument needed!}
+  case $1 in 
+    generate) 
+      indigo_apikey_generate ;;
+    list) 
+      indigo_apikey_list ;;
+    destroy) #<id>
+      shift; indigo_apikey_destroy $1 ;;
+    *) throw indigo_apikey: unknown subcommand \"$1\"
+  esac
+}
+
+

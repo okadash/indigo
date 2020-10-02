@@ -1,0 +1,5 @@
+#!/bin/sh
+indigo_sshkey_retrieve () 
+{ 
+    set_endpoint vm/sshkey/${1:?indigo_sshkey_retrieveargument needed!}
+}

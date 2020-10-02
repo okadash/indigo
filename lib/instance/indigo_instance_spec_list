@@ -1,0 +1,5 @@
+#!/bin/sh
+indigo_instance_spec_list () 
+{ 
+    set_endpoint vm/getinstancespec?instanceTypeId=1
+}

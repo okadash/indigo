@@ -1,0 +1,5 @@
+#!/bin/sh
+indigo_instance_os_list () 
+{ 
+    set_endpoint vm/oslist?instanceTypeId=1
+}

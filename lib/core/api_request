@@ -1,9 +1,8 @@
 #!/bin/sh
-
 api_request(){
   header="${ind_content_header:-$ind_auth_header}"
-  { get_type; get_endpoint;} > /dev/null
-  ${DRY:+echo} curl -X `getvar type` \
+  { get_method; get_endpoint;} > /dev/null
+  ${DRY:+echo} curl -X `get_method` \
   `getvar endpoint` \
   "${header:+-H}" "$header" \
   -d "${body}"

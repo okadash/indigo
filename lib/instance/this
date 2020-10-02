@@ -2,9 +2,8 @@
 
 #indigo_instance
 indigo_instance(){
-  require @indigo/instance
   set_token
-  set_type ${1:? indigo_instance: argument needed!}
+  set_method ${1:? indigo_instance: argument needed!}
   case $1 in 
     types) 
     ##types: 

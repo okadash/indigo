@@ -32,7 +32,7 @@ indigo(){
       sshkey|s|ssh) 
       ##manage sshkey
         shift; indigo_sshkey $@ ;;
-      instance|i|inst|srv|server|create|start|stop|forcestop|reset|destroy) 
+      instance|i|inst|srv|server|create|list|start|stop|forcestop|reset|destroy) 
       ##manage instance
         case $1 in instance|i|inst|srv|server) shift; esac
 	indigo_instance $@ ;;

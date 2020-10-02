@@ -1,0 +1,6 @@
+#!/bin/sh
+# list apikeys
+indigo_apikey_list () 
+{ 
+    set_endpoint auth/apikey
+}

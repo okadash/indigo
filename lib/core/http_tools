@@ -1,19 +1,19 @@
 #!/bin/sh
 
-set_type(){ 
-  case ${1:? settype: argument needed!} in 
-    generate|list|get|types|regions|os|spec) 
-      setvar type GET;;
+set_method(){ 
+  case ${1:? setmethod: argument needed!} in 
+    generate|list|get|methods|regions|os|spec) 
+      setvar method GET;;
     create|init|start|stop|forcestop|destroy|assign|retry|restore|add|verify|add)
-      setvar type POST ;;
+      setvar method POST ;;
     update)
-      setvar type PUT;;
+      setvar method PUT;;
     delete|remove|cancel)
-      setvar type DELETE;;
+      setvar method DELETE;;
   esac
 }
 
-get_type(){ getvar type; }
+get_method(){ getvar method; }
 
 set_endpoint(){ setvar endpoint ${BASE_URL:?BASE_URL corrupted!}/${1:?set_endpoint: argument needed!}; }
 

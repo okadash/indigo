@@ -1,0 +1,5 @@
+#!/bin/sh
+is_file () 
+{ 
+    test $# -eq 1 && test -f $1
+}

@@ -1,0 +1,18 @@
+#!/bin/sh
+indigo_firewall_create_inline () 
+{ 
+    fw_name=${1:?indigo_firewall: firewall name not specified};
+    fw_direction=${2:?indigo_firewall: specify \"inbound\" or \"outbound\"};
+    fw_protocol=${3:?indigo_firewall: specify \"tcp\" or \"udp\"};
+    fw_port=${4:?indigo_firewall: port not specified;};
+    fw_source_ip=${5:?indigo_firewall: source IP not specified;};
+    shift 5;
+    fw_instance=$@;
+    body="{
+    \"name\": \"$fw_name\",
+    \"$fw_direction\":[
+      {\"type\":\"Custom\",\"protocol\":\"`echo $fw_protocol | tr [a-z] [A-Z]`\",\"port\":\"$fw_port\",\"source\":\"$fw_source_ip\"} 
+    ]
+  ${fw_instance:+,\"instances\":[\"$fw_instance\"]} 
+  }"
+}

@@ -1,0 +1,16 @@
+#!/bin/sh
+indigo_instance_create () 
+{ 
+    set_endpoint vm/createinstance;
+    ssh_key_id=${1:?indigo_instance_create: ssh_key_id not set};
+    instance_name=${2:?indigo_instance_create: instance_name MUST be specified};
+    instance_plan=${3:-1};
+    os_id=${4:-2};
+    body="{
+    \"sshKeyId\": \"$ssh_key_id\",
+    \"regionId\": \"${region_id:-1}\",
+    \"osId\": \"${os_id}\",
+    \"instancePlan\": \"${instance_plan}\",
+    \"instanceName\": \"${instance_name:-null}\"
+  }"
+}

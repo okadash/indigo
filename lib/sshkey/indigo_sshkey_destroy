@@ -1,0 +1,5 @@
+#!/bin/sh
+indigo_sshkey_destroy () 
+{ 
+    throw not implemented
+}

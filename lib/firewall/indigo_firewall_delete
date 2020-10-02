@@ -1,0 +1,5 @@
+#!/bin/sh
+indigo_firewall_delete () 
+{ 
+    set_endpoint nw/deletefirewall/${1:?indigo_firewall_delete: template_id MUST be specified!}
+}

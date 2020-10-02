@@ -1,7 +1,7 @@
+#!/bin/sh
 indigo_firewall(){
-  require @indigo/firewall
   set_token
-  set_type ${1:? indigo_instance: argument needed!}
+  set_method ${1:? indigo_instance: argument needed!}
   case $1 in 
     create) #<name> #<inbound|outbound> #<rules> #[instances]
       shift; indigo_firewall_create $@ ;;

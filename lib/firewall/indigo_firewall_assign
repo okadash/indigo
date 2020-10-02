@@ -1,0 +1,11 @@
+#!/bin/sh
+indigo_firewall_assign () 
+{ 
+    set_endpoint nw/assign;
+    instance_id=${1:?indigo_firewall_assign: instance_id MUST be specified};
+    template_id=${2:?indigo_firewall_assign: template_id MUST be specified};
+    body="{
+    \"instanceid\": \"$instance_id\",
+    \"templateid\": \"${template_id}\"
+  }"
+}

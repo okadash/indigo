@@ -10,6 +10,13 @@ Use [shef](https://github.com/okadash/shef) to install indigo-cli:
 shef install https://github.com/okadash/indigo-cli
 ```
 
+For API access, you need to store API key credential in somewhere, and set CRED_PATH environmental variable in your shrc.
+
+```
+echo '{"apiKey":"NskcH3Uw91L2ms8vSao7g3pR8WAqEq6A","apiSecret":"o37Mcaw01KLpkOgT"}' >> ~/your/secret/path
+echo 'CRED_PATH=~/your/secret/path >> ~/.bashrc
+```
+
 # USAGE
 
 | command | description |

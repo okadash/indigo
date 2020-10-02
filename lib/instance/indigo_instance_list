@@ -1,0 +1,5 @@
+#!/bin/sh
+indigo_instance_list () 
+{ 
+    set_endpoint vm/getinstancelist
+}

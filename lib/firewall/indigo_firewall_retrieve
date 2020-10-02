@@ -1,0 +1,5 @@
+#!/bin/sh
+indigo_firewall_retrieve () 
+{ 
+    set_endpoint nw/gettemplate/${1:?indigo_firewall_assign: template_id MUST be specified}
+}

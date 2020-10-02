@@ -1,0 +1,8 @@
+#!/bin/sh
+indigo_firewall_create () 
+{ 
+    set_endpoint nw/createfirewall;
+    : ${1:?indigo_firewall_create: argument not specified};
+    is_file $1 || indigo_firewall_create_inline $@;
+    is_file $1 && indigo_firewall_create_from_template $1
+}

@@ -2,7 +2,7 @@
 # cosh
 
 SHELIB_MODULE_NAME=indigo
-SHELIB_MODULE_VERSION=0.1.1
+SHELIB_MODULE_VERSION=0.2.0
 SHELIB_MODULE_DESC="indigo API command line tool"
 MODULE_AUTHER_NAME="Okadarien Saru"
 MODULE_AUTHER_EMAIL="okadas@dev.sysnk.net"

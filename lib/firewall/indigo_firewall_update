@@ -1,0 +1,5 @@
+#!/bin/sh
+indigo_firewall_update () 
+{ 
+    throw not implemented now
+}

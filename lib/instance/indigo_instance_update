@@ -1,0 +1,19 @@
+#!/bin/sh
+indigo_instance_update () 
+{ 
+    set_endpoint vm/instance/statusupdate;
+    : ${1:?indigo_instance_update: argument needed!};
+    instance_id=${2:?indigo_instance_update: instance_id MUST be specified!};
+    case $1 in 
+        start | stop | forcestop | reset | destroy)
+            status=$1
+        ;;
+        *)
+            throw indigo_instance_update: unknown subcommand $1
+        ;;
+    esac;
+    body="{
+    \"instanceId\": \"$instance_id\",
+    \"status\": \"$status\"
+  }"
+}

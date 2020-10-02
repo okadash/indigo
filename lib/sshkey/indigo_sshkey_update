@@ -1,0 +1,5 @@
+#!/bin/sh
+indigo_sshkey_update () 
+{ 
+    throw not implemented
+}

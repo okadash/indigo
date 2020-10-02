@@ -1,0 +1,5 @@
+#!/bin/sh
+indigo_firewall_create_from_template () 
+{ 
+    throw not implemented now
+}

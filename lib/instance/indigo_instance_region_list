@@ -1,0 +1,5 @@
+#!/bin/sh
+indigo_instance_region_list () 
+{ 
+    set_endpoint vm/getregion?instanceTypeId=1
+}

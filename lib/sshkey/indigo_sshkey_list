@@ -1,0 +1,15 @@
+#!/bin/sh
+indigo_sshkey_list () 
+{ 
+    case $1 in 
+        "")
+            set_endpoint vm/sshkey
+        ;;
+        active)
+            set_endpoint vm/sshkey/active/status
+        ;;
+        *)
+            throw indigo_sshkey: invalid argument $1
+        ;;
+    esac
+}
