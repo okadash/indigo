@@ -43,6 +43,6 @@ echo 'CRED_PATH=~/your/secret/path >> ~/.bashrc
 
 See WebArena official [API Documentation](https://indigo.arena.ne.jp/userapi/).
 
-# Contact
+# Author
 
-indigo-tools@lab.sysnk.net (SyaNaka Lab.)
+okadas[at]tanban.org
