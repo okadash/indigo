@@ -1,6 +1,10 @@
-# INDIGO-CLI
+Indigo API command line tools for [WebArena Indigo](https://web.arena.ne.jp/indigo/) platform users.
 
-This is Indigo API command line tools for [WebArena Indigo](https://web.arena.ne.jp/indigo/) platform users.
+# Requirement
+
+* [shelib @core](https://github.com/okadash/indigo) >=0.5.0
+* jq (tested on 1.5.0)
+* gnupg (tested on 2.2.12 )
 
 # INSTALL
 
